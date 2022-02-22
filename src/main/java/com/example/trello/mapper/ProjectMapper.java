@@ -7,6 +7,8 @@ import com.example.trello.entity.project.Project;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Mapper(componentModel = "spring")
 public interface ProjectMapper extends BaseMapper<
@@ -14,4 +16,16 @@ public interface ProjectMapper extends BaseMapper<
         ProjectDto,
         ProjectCreateDto,
         ProjectUpdateDto>{
+
+    @Override
+    ProjectDto toDto(Project project);
+
+    @Override
+    List<ProjectDto> toDto(List<Project> e);
+
+    @Override
+    Project fromCreateDto(ProjectCreateDto projectCreateDto);
+
+    @Override
+    Project fromUpdateDto(ProjectUpdateDto d);
 }

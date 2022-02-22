@@ -1,6 +1,5 @@
 package com.example.trello.entity.auth;
 
-import com.example.trello.entity.Auditable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,21 +13,27 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Role extends Auditable {
-    @Column(nullable = false)
+public class Role {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String code;
 
-    @Column(nullable = false)
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private AuthUser user;
+
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "auth_role_permission",
-            joinColumns = @JoinColumn(name = "role_id"),
-            inverseJoinColumns = @JoinColumn(name = "permission_id")
+            joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "permission_id", referencedColumnName = "id")
     )
     private List<Permission> permissions;
 
-    @OneToOne(mappedBy = "role")
-    private User user;
+
 }

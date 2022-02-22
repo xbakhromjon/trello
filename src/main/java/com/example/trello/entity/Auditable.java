@@ -7,6 +7,8 @@ import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.time.Instant;
+import java.util.Date;
 import java.util.Objects;
 
 @Getter
@@ -15,13 +17,19 @@ import java.util.Objects;
 @AllArgsConstructor
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public abstract class Auditable implements BaseEntity{
+public abstract class Auditable implements BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id",unique = true,nullable = false)
     private Long id;
 
+    private Instant createdAt;
+
+    private Long createdBy;
+
+    private Instant updatedAt;
+
+    private Long updatedBy;
 
     @Override
     public int hashCode() {

@@ -17,7 +17,23 @@ public interface GenericService <
 
     Long totalCount (C criteria);
 
-    Void block (K id);
+    default Void block (K id) {
+        return null;
+    }
 
-    Void unblock(K id);
+    default Void unblock (K id) {
+        return null;
+    }
+
+    default Void archive (K id) {
+        return null;
+    }
+
+    default Void unarchive (K id) {
+        return null;
+    }
+
+    default Void close (K id) {
+        return null;
+    }
 }
