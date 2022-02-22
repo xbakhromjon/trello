@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: prod
+
+  thymeleaf:
+    cache: false
+  servlet:
+    multipart:
+      max-file-size: 100MB
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=trello
+    username: postgres
+    password: 9395
+  jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: create
+      open-in-view: false
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+  banner:
+      image:
+        location: classpath:banner.txt
+server:
+      port: 8080
