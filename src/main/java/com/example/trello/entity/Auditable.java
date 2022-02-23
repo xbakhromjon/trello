@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -23,11 +24,11 @@ public abstract class Auditable implements BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Instant createdAt;
+    private LocalDateTime createdAt;
 
     private Long createdBy;
 
-    private Instant updatedAt;
+    private LocalDateTime updatedAt;
 
     private Long updatedBy;
 

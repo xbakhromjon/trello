@@ -36,4 +36,8 @@ public interface GenericService <
     default Void close (K id) {
         return null;
     }
+
+    default List<D> getAllById(K id) {
+        return null;
+    }
 }

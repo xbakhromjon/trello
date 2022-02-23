@@ -53,7 +53,7 @@ public class OrganizationController extends AbstractController<OrganizationServi
         return "organization/update";
     }
 
-    @RequestMapping(value = "update/", method = RequestMethod.PATCH)
+    @RequestMapping(value = "update/", method = RequestMethod.POST)
     public String update(@ModelAttribute OrganizationUpdateDto dto) {
         service.update(dto);
         return "redirect:/";

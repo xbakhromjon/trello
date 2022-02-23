@@ -8,10 +8,8 @@ import com.example.trello.entity.task.Task;
 import lombok.Getter;
 import lombok.Setter;
 
-
 import javax.persistence.*;
-import java.time.Instant;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -25,11 +23,11 @@ public class Project extends Auditable {
     @ManyToOne
     private Organization organization;
 
-    private Instant deadline;
+    private LocalDateTime deadline;
 
-    private Boolean closed;
+    private boolean closed;
 
-    private Boolean archived;
+    private boolean archived;
 
 
     @ManyToMany(cascade = CascadeType.ALL)

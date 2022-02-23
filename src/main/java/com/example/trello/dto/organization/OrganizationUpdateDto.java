@@ -1,14 +1,12 @@
 package com.example.trello.dto.organization;
 
 import com.example.trello.dto.GenericDto;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class OrganizationUpdateDto extends GenericDto {
     private String name;
     private String code;

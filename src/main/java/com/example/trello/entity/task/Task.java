@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -17,13 +18,15 @@ import java.util.List;
 public class Task extends Auditable {
     private String name;
 
-    private String level;
+    private String priority;
 
     private String description;
 
-    private boolean closed;
-
     private String state;
+
+    private LocalDateTime deadLine;
+
+    private boolean closed;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "task_member", joinColumns = {@JoinColumn(name = "task_id", referencedColumnName = "id")},

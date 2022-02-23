@@ -1,13 +1,12 @@
 package com.example.trello.dto.organization;
 
 import com.example.trello.dto.Dto;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Builder
 public class OrganizationCreateDto implements Dto {
     private String name;
