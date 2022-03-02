@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" ,
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:include="fragments.html :: header('Task Page','css/task.css')">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <section th:include="fragments.html :: main"></section>
+    <div class="div">
+        <div class="container">
+            <form method="post">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="name" th:value="${task.name}" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Description</label>
+                    <textarea class="form-control" name="description" id="formGroupExampleInput2" th:value="${task.description}" placeholder="Description"></textarea>
+                </div>
+                <select class="form-select" aria-label="Default select example" name="priority">
+                    <option value="1" selected>EASY</option>
+                    <option value="2">MEDIUM</option>
+                    <option value="3">HARD</option>
+                </select>
+
+                <div class="form-group">
+                    <label for="deadline">Deadline</label>
+                    <input type="datetime-local" class="form-control" name="deadline" th:value="${task.deadline}" id="deadline"/>
+                </div>
+
+                <div class="form-group">
+                    <select class="form-select" aria-label="Default select example" name="state">
+                        <option value="1" selected>STATE1</option>
+                        <option value="2">STATE2</option>
+                        <option value="3">STATE3</option>
+                        <option value="4">STATE4</option>
+                    </select>
+                </div>  
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</header>
+</body>
+</html>

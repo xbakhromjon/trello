@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" ,
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:include="fragments.html :: header('Task Page','css/task.css')">
+
+</head>
+<body>
+<header>
+    <section th:include="fragments.html :: main"></section>
+    <aside>
+        <section th:include="fragments.html :: nav"></section>
+        <div id="Task">
+            <div class="containerm">
+                <h4 th:text="${task.name}"></h4>
+                <div class="contents">
+                    <!--                    <div class="content-actions">-->
+                    <!--                        <h5>Actions</h5>-->
+                    <!--                        <div class="actions-box">-->
+                    <!--                            <h6>CRM system design</h6>-->
+                    <!--                            <p><b>Activity: </b>12/04/2021, 6:37 p.m </p>-->
+                    <!--                            <p>Приступил(-а) к задаче</p>-->
+                    <!--                            <span> <img th:src="@{imges/Ellipse.png}" alt=""/>Azhar</span>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="actions-box">-->
+                    <!--                            <h6>CRM system design</h6>-->
+                    <!--                            <p><b>Activity: </b>12/04/2021, 6:37 p.m </p>-->
+                    <!--                            <p>Приступил(-а) к задаче</p>-->
+                    <!--                            <span><img th:src="@{imges/Ellipse.png}" alt=""/>Azhar</span>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="actions-box">-->
+                    <!--                            <h6>CRM system design</h6>-->
+                    <!--                            <p><b>Activity: </b>12/04/2021, 6:37 p.m </p>-->
+                    <!--                            <p>Приступил(-а) к задаче</p>-->
+                    <!--                            <span><img th:src="@{imges/Ellipse.png}" alt=""/>Azhar</span>-->
+                    <!--                        </div>-->
+
+                    <!--                        <div class="actions-box">-->
+                    <!--                            <h6>CRM system design</h6>-->
+                    <!--                            <p><b>Activity: </b>12/04/2021, 6:37 p.m </p>-->
+                    <!--                            <p>Приступил(-а) к задаче</p>-->
+                    <!--                            <span><img th:src="@{imges/Ellipse.png}" alt=""/>Azhar</span>-->
+                    <!--                        </div>-->
+
+                    <!--                        <div class="actions-box">-->
+                    <!--                            <h6>CRM system design</h6>-->
+                    <!--                            <p><b>Activity: </b>12/04/2021, 6:37 p.m </p>-->
+                    <!--                            <p>Приступил(-а) к задаче</p>-->
+                    <!--                            <span><img th:src="@{imges/Ellipse.png}" alt=""/>Azhar</span>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <div class="container-box">
+                        <div class="content-box">
+                            <p th:text="${task.description}"></p>
+                        </div>
+                        <div class="content-box">
+                            <textarea placeholder="Comment..." id="" cols="10" rows="3" name="comment"></textarea>
+                            <button type="submit">Submit</button>
+                        </div>
+
+                        <!--Commentni chiqarishni o'ylab ko'rish kerak ekan-->
+                        <div class="content-box">
+                            <div class="flex">
+                                <p class="box-text"><img alt="" src=""/></p>
+                                <p>12/04/2021, 6:37 p.m</p>
+                            </div>
+                            <span>1. Добавлены шаблонные теги для подсчёта часов, потраченных на закрытые задачи.</span>
+                        </div>
+                    </div>
+                    <div class="content-status">
+                        <div class="status">
+                            <div class="status-text">
+                                <p>Priority:</p>
+                                <button class="low" th:text="${task.priority}"></button>
+                            </div>
+
+                            <div class="status-text">
+                                <p>Status:</p>
+                                <span th:text="${task.state}"></span>
+                            </div>
+
+                            <div class="status-text">
+                                <p>Created At:</p>
+                                <span th:text="${task.createdAt}"></span>
+                            </div>
+
+                            <div class="status-text">
+                                <p>Deadline:</p>
+                                <span th:text="${task.deadline}"></span>
+                            </div>
+
+                            <div class="status-text">
+                                <p>Members:</p>
+                                <div th:each="user: ${task.users}">
+                                    <span th:text="${user.firstname}"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btn">
+                            <button type="submit" sec:authorize="hasRole('ROLE_LEAD')"
+                                    th:action="@{task/update/{id}/(id=${task.id})}">Edit Task
+                            </button>
+
+                            <!--                            <button type="submit">Change the priority-->
+                            <!--                                <img th:src="@{imges/down.png}" alt=""/>-->
+                            <!--                            </button>-->
+
+                            <button type="submit" sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{task_member/add/}">
+                                <img th:src="@{imges/usercheck.png}" alt=""/>Add a participant
+                            </button>
+
+                            <!--                            <button type="submit">-->
+                            <!--                                <img th:src="@{imges/ion_snow.png}" alt=""/>Freeze the task-->
+                            <!--                            </button>-->
+
+                            <button type="submit" th:action="@{task/close}">
+                                <img th:src="@{imges/check.png}" alt=""/>Close task
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</header>
+
+<section th:include="fragments.html :: js"></section>
+<script>
+    const menu = document.querySelector(".menu-bar")
+    const main = document.querySelector("main")
+    menu.addEventListener("click", () => {
+        main.classList.toggle("open")
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+@import "main.css";
+
+#Home .containerm {
+  width: 100%;
+  padding: 10px 20px 60px 20px;
+}
+#Home .containerm h3{
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+#Home .content {
+  grid-template-columns: 750px 300px;
+  gap: 20px;
+  height: 285px;
+  border-radius: 17px;
+  margin-top: 8px;
+}
+
+#Home .contents,
+#Home .content-box {
+  background: #f6f6f6;
+  border-radius: 17px;
+  margin-top: 20px;
+  padding: 22px;
+}
+
+#Home .content-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+#Home .box-text img{
+  width: 30px;
+  margin-right: -1rem;
+}
+
+#Home .content-text p {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #000000;
+}
+
+#Home .content-text p:last-child {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+#Home .box {
+  margin: 10px 0;
+  padding: 23px 24px;
+  width: 100%;
+  height: 55px;
+  background: #e0e4ea;
+  border-radius: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#Home .box p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 5px;
+  line-height: 20px;
+  color: #000000;
+}
+
+#Home .box .box-text span {
+  margin: 0 10px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  color: #000000;
+}
+
+#Home .content-box .box-text p {
+  font-style: normal;
+  margin: 5px 0 -5px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+}
+
+#Home .content-box .box-text span {
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+@media (max-width: 1175px) {
+
+  #Home .content {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    height: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  #Home .box {
+    display: block;
+    height: 120px;
+    padding: 10px;
+  }
+
+  #Home .box-text span {
+    display: block;
+    text-align: left;
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 630px) {
+
+  #Home .containerm {
+    width: 450px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 610px) {
+  #Home .content {
+    width: 400px;
+  }
+}
+
+@media (max-width: 510px) {
+  #Home .content {
+    width: 280px;
+  }
+
+  #Home .containerm {
+    width: 300px;
+    padding: 0;
+    margin: 0;
+  }
+}

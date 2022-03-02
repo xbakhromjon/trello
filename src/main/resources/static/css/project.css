@@ -1,0 +1,165 @@
+@import "main.css";
+#Project .containerm {
+  height: 100%;
+  padding: 30px 50px 0 50px;
+}
+
+#Project .containerm h3 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 20px;
+  color: #000000;
+  margin-bottom: 25px;
+}
+
+#Project .content {
+  display: grid;
+  grid-template-columns: 300px 1fr 300px;
+  gap: 20px;
+}
+
+#Project .box {
+  padding: 30px 22px 22px;
+  width: 300px;
+  height: 100px;
+  background: #f6f6f6;
+  border-radius: 17px;
+}
+
+#Project .content-box {
+  padding:30px 22px 22px;
+  width: 100%;
+  height: 100px;
+  background: #f6f6f6;
+  border-radius: 17px;
+}
+
+#Project .boxs {
+  padding:30px 22px  22px;
+  width: 300px;
+  height: 100px;
+  background: #f6f6f6;
+  border-radius: 17px;
+}
+
+#Project .todoContainer {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+#Project .todoContent-box {
+  padding: 10px 18px;
+  margin-top: 20px;
+  width: 100%;
+  height: 400px;
+  background: #f6f6f6;
+  border-radius: 17px;
+}
+
+#Project .todo-img {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: -1rem;
+}
+
+#Project .todo-box {
+  padding: 15px;
+  margin: 10px 0;
+  width: 100%;
+  height: 105px;
+  background: #e0e4ea;
+  border-radius: 17px;
+}
+
+#Project .todo-box h4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+
+#Project .todo-box h4 button {
+  padding: 3px 9px;
+  border: none;
+  border-radius: 14px;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+  color: #ffffff;
+  margin-bottom: -.2rem
+}
+
+#Project .medium {
+  background: #ff9533;
+}
+
+#Project .low {
+  background: #67cb65;
+}
+
+#Project .high {
+  background: #e74444;
+}
+
+#Project .todo-box p {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+  margin-bottom: 0px;
+}
+
+#Project .content p {
+  margin-top: -1.1rem;
+}
+
+#Project .todo-box p span {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #6c6c6c;
+}
+
+
+@media (max-width: 1260px) {
+
+  #Project .todoContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  #Project .content {
+    display: block;
+    width: 100%;
+  }
+
+  #Project .content .box,
+  #Project .content  .boxs {
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 760px) {
+  #Project .todoContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 630px) {
+  #Project .containerm {
+    padding: 30px 10px;
+  }
+
+  #Project .content-box {
+    height: 150px;
+  }
+}
